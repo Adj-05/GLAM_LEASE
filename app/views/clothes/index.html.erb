@@ -1,0 +1,19 @@
+<div class = "banner">
+  <h1>Welcome to GlamLease Home !</h1>
+  <p>Clothes renting between consumers</p>
+</div>
+
+<div class="button-container">
+  <% @clothes.each do |clothe| %>
+    <%= link_to clothe_path(clothe.id) do %>
+      <div class="box_vetement">
+        <% if clothe.photo.attached? %>
+          <%= cl_image_tag clothe.photo.key, class: "clothe-image" %>
+        <% end %>
+        <%= clothe.clothe_type %>
+        <%= clothe.size %>
+        <%= clothe.genre %>
+      </div>
+    <% end  %>
+  <% end %>
+</div>
