@@ -1,0 +1,11 @@
+<h1><%= @clothe.name %></h1>
+<p>Type: <%= @clothe.type %></p>
+<p>Color : <%= @clothe.color %></p>
+<p>Size : <%= @clothe.size %> </p>
+<p>Price per day : <%= @clothe.price_per_day%> </p>
+
+<% if @clothe.image.attached? %>
+  <%= image_tag @clothe.image, class: "clothe-image" %>
+<% end %>
+
+<%= link_to "Back to all clothes", clothes_path %>
