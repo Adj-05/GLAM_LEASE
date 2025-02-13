@@ -1,0 +1,9 @@
+<h1>Book this is item</h1>
+
+<%= simple_form_for do |f| %>
+  <%= f.input :start_date, label: "Starting date" %>
+  <%= f.input :end_date, label: "End date" %>
+  <%= f.input :total_price, label: "Total price" %>
+
+  <%= f.submit "Book now", class: "btn btn-primary" %>
+<% end %>
