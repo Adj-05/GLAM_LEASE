@@ -1,25 +1,25 @@
-<div class="card-product">
-  <img src="https://staticassets.oxfam.org.uk/oxfamgb-production/images/RS350994_Clothes_at_Oxfam_Supersto.2e16d0ba.fill-650x450.jpg" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Type: <%= @clothe.clothe_type %></p>
-    <p>Color : <%= @clothe.color %></p>
-    <p>Size : <%= @clothe.size %> </p>
-    <p>Price per day : <%= @clothe.price_per_day%> </p>
+<div class="container-fluid">
+  <div class="d-flex justify-content-around">
+    <div>
+      <% if @clothe.photo.attached? %>
+        <%= cl_image_tag @clothe.photo.key, class: "clothe-image", height: 300, width: 300, crop: :fill %>
+      <% end %>
+    </div>
+
+    <div class="d-flex flex-column">
+      <h2><%= @clothe.name %></h2>
+      <p>Type: <%= @clothe.clothe_type %></p>
+      <p>Color : <%= @clothe.color %></p>
+      <p>Size : <%= @clothe.size %> </p>
+      <p>Price per day : <%= @clothe.price_per_day%> </p>
+    </div>
+
+    <div class="d-flex flex-column justify-content-between">
+      <%= link_to "Back", clothes_path %>
+      <%= link_to "Book this item", new_clothe_booking_path(@clothe), class: "btn btn-success" %>
+
+      <%# TODO %>
+      <%# Potentiellement mettre directement le formulaire de booking ici %>
+    </div>
   </div>
-
-
-<a class="btn btn-ghost" href="#"><%= link_to "Back", clothes_path %></a>
-
-<%= link_to "Book this item", new_clothe_booking_path(@clothe), class: "btn btn-success" %>
-
-<% if @clothe.photo.attached? %>
-  <%= cl_image_tag @clothe.photo.key, class: "clothe-image" %>
-<% end %>
-
-
-    <button class = "btn_book">
-        <%= link_to "Book", clothes_path %>
-    </button>
-
 </div>

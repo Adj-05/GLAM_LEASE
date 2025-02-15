@@ -7,25 +7,35 @@
 .card-trip > img {
   height: 200px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
+
+.container-sm {
+// display: grid;
+// grid-template-columns: 1fr 1fr 1fr;
+// gap: 16px;
+
+}
+
+
+
 
 a{
   text-decoration: none;
 }
 
 .card-trip h2 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   margin: 0;
-  color:black;
 }
 
 .card-trip p {
-  font-size: 13px;
+  font-size: 12px;
+  line-height: 1.4;
   opacity: .7;
-  margin: 0;
-  color:black;
+  margin-bottom: 0;
+  margin-top: 8px;
 }
 
 
