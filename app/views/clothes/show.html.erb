@@ -1,10 +1,15 @@
-<p>Type: <%= @clothe.clothe_type %></p>
-<p>Color : <%= @clothe.color %></p>
-<p>Size : <%= @clothe.size %> </p>
-<p>Price per day : <%= @clothe.price_per_day%> </p>
 
-<% if @clothe.photo.attached? %>
+<div class = "card-trip-infos">
+  <p>Type: <%= @clothe.clothe_type %></p>
+  <p>Color : <%= @clothe.color %></p>
+  <p>Size : <%= @clothe.size %> </p>
+  <p>Price per day : <%= @clothe.price_per_day%> </p>
+  <% if @clothe.photo.attached? %>
   <%= image_tag @clothe.image, class: "clothe-image" %>
 <% end %>
+</div>
+
+
+
 
 <%= link_to "Back to all clothes", clothes_path %>
