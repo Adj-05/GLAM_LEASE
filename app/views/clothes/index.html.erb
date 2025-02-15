@@ -1,9 +1,11 @@
 <div class = "banner">
-  <h1>Welcome to GlamLease Home !</h1>
-  <p>Clothes renting between consumers</p>
+  <h1><strong>Welcome to GlamLease Home !</strong></h1>
+  <p><strong>Clothes renting between consumers</strong></p>
 </div>
+<%= link_to "Sell a new Clothe", new_clothe_path(@clothe), class: "btn btn-primary" %>
 
 <div class="button-container">
+
   <% @clothes.each do |clothe| %>
     <%= link_to clothe_path(clothe.id) do %>
       <div class="card-trip">

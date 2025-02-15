@@ -1,11 +1,11 @@
 // Specific CSS for your home-page
 
 body{
-  background-color:rgb(219, 215, 231);
+  background-color:white;
 }
 
 .banner{
-  background: linear-gradient(rgb(129, 82, 165),rgb(45, 17, 67));
+  background-color: #f9dbbd;
   height: 200px;
   width : 100%;
   color: rgb(241, 238, 244);
@@ -13,6 +13,8 @@ body{
 
 }
 
-h1,p{
+h1,p, h2{
+  color: black;
 text-align: center;
+font-family: "Helvetica Neue", Arial, sans-serif;
 }

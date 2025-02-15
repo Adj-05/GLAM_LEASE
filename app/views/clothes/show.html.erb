@@ -8,7 +8,14 @@
     <p>Price per day : <%= @clothe.price_per_day%> </p>
   </div>
 
+
 <a class="btn btn-ghost" href="#"><%= link_to "Back", clothes_path %></a>
+
+<%= link_to "Book this item", new_clothe_booking_path(@clothe), class: "btn btn-success" %>
+
+<% if @clothe.photo.attached? %>
+  <%= cl_image_tag @clothe.photo.key, class: "clothe-image" %>
+<% end %>
 
 
     <button class = "btn_book">
