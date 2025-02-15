@@ -1,8 +1,14 @@
 class ClothesController < ApplicationController
+
+  def index
+    @clothes = Clothe.all
+  end
+
   def show
     @clothe = Clothe.find(params[:id])
   end
 
+<<<<<<< HEAD
   def new
     @clothe = Clothe.new
   end
@@ -22,4 +28,6 @@ class ClothesController < ApplicationController
   def clothe_params
     params.require(:clothe).permit(:color, :price_per_day, :clothe_type, :genre, :size)
   end
+=======
+>>>>>>> master
 end
