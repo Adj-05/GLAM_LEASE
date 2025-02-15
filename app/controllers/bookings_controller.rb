@@ -5,21 +5,21 @@ class BookingsController < ApplicationController
   end
 
   def create
-    binding.break
+    @clothe = Clothe.find(params[:clothe_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-
     @booking.clothe = @clothe
+    if @booking.save
+      redirect_to clothes_path
+    else
+      render :new, status: :unprocessable_entity
+    end
 
-    puts "ZZZZZZZZZ#{@booking.errors.full_messages}"
-    @booking.save
-
-    redirect_to clothes_path
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :total_price)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end

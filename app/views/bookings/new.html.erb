@@ -1,9 +1,10 @@
 <h1>Book this is item</h1>
 
 <%= simple_form_for [@clothe, @booking] do |f| %>
-  <%= f.input :start_date, label: "Starting date" %>
-  <%= f.input :end_date, label: "End date" %>
-  <%= f.input :total_price, label: "Total price" %>
-
+  <%= f.input :start_date, input_html: { data: { controller: "datepicker"} }, as: :string, label: "Starting date" %>
+  <%= f.input :end_date, input_html: { data: { controller: "datepicker"} }, as: :string, label: "End date" %>
+  <div>
+    <p>Total Price: 50€</p>
+  </div>
   <%= f.submit "Book now", class: "btn btn-primary" %>
 <% end %>
