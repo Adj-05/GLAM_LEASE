@@ -11,5 +11,5 @@ user3.save!
 
 
 
-clothe1 = Clothe.new(type: "haut", color: "blue", size: "s", genre: "homme", price_per_day: "25", user_id: user1.id )
+clothe1 = Clothe.new(clothe_type: "haut", color: "blue", size: "s", genre: "homme", price_per_day: "25", user_id: User.last.id )
 clothe1.save!
