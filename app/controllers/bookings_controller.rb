@@ -1,13 +1,20 @@
 class BookingsController < ApplicationController
   def new
     @booking = Booking.new
+    @clothe = Clothe.find(params[:clothe_id])
   end
 
   def create
+    binding.break
     @booking = Booking.new(booking_params)
-    #comment associer le booking à l'utilisateur ?
-    #comment enregister le booking ?
-    redirect_to #
+    @booking.user = current_user
+
+    @booking.clothe = @clothe
+
+    puts "ZZZZZZZZZ#{@booking.errors.full_messages}"
+    @booking.save
+
+    redirect_to clothes_path
   end
 
   private

@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  get 'bookings/new'
-  get 'bookings/create'
   devise_for :users
   root to: "clothes#index"
 
-  resources :clothes
+  resources :clothes do
+    resources :bookings, only: [:new, :create]
+  end
 
-  resources :bookings, only: [:new, :create] #booking côté client
-  resources :user
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   #resources :bookings, only:[:index, :update] #gestion booking côté marchand
