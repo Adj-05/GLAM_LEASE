@@ -1,0 +1,34 @@
+<%= simple_form_for @clothe  do |f| %>
+<div class="container-sm">
+<div class="container-sm">
+
+  <div>
+    <%= f.input :photo, as: :file, input_html: { multiple: false } %>
+  </div>
+
+  <div>
+    <%= f.input :color, class: "form-control", placeholder: "blue, red, yellow..."%>
+  </div>
+
+  <div>
+      <%= f.input :size, class: "form-select form-select-sm", collection: ["xs", "s", "m", "l", "xl"]%>
+  </div>
+
+  <div>
+    <%=  f.input :price_per_day %>
+  </div>
+
+  <div>
+    <%= f.input :clothe_type, class: "form-select form-select-sm", collection: ["Haut", "Bas"] %>
+  </div>
+
+  <div>
+    <%= f.input :genre, class: "form-select form-select-sm", collection: ["Male", "Female", "Other"] %>
+  </div>
+
+  <div>
+    <%= f.button :submit, class: "btn-md btn-primary" %>
+  </div>
+</div>
+</div>
+<% end %>
