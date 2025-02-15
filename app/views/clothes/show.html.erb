@@ -3,8 +3,10 @@
 <p>Size : <%= @clothe.size %> </p>
 <p>Price per day : <%= @clothe.price_per_day%> </p>
 
+<%= link_to "Book this item", new_clothe_booking_path(@clothe), class: "btn btn-success" %>
+
 <% if @clothe.photo.attached? %>
-  <%= image_tag @clothe.image, class: "clothe-image" %>
+  <%= cl_image_tag @clothe.photo.key, class: "clothe-image" %>
 <% end %>
 
 <%= link_to "Back to all clothes", clothes_path %>
