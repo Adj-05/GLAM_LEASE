@@ -2,8 +2,10 @@
   <h1>Welcome to GlamLease Home !</h1>
   <p>Clothes renting between consumers</p>
 </div>
+<%= link_to "Sell a new Clothe", new_clothe_path(@clothe), class: "btn btn-primary" %>
 
 <div class="button-container">
+
   <% @clothes.each do |clothe| %>
     <%= link_to clothe_path(clothe.id) do %>
       <div class="box_vetement">
