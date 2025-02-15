@@ -1,0 +1,25 @@
+<%= form_with(model: clothe, local: true) do |form| %>
+  <div>
+    <%= form.label :color %>
+    <%= form.text_field :color, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :price_per_day %>
+    <%= form.number_field :price_per_day, step: 0.01, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :clothe_type %>
+    <%= form.select :clothe_type, ["T-Shirt", "Pants", "Jacket", "Shoes"], prompt: "Select Type" %>
+  </div>
+
+  <div>
+    <%= form.label :genre %>
+    <%= form.select :genre, ["Men", "Women", "Unisex"], prompt: "Select Genre" %>
+  </div>
+
+  <div>
+    <%= form.submit "Add Clothe" %>
+  </div>
+<% end %>

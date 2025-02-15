@@ -1,0 +1,25 @@
+<%= simple_form_for @clothe  do |f| %>
+  <div>
+    <%= f.input :color %>
+  </div>
+
+  <div>
+      <%= f.input :size %>
+  </div>
+
+  <div>
+    <%=  f.input :price_per_day %>
+  </div>
+
+  <div>
+    <%= f.input :clothe_type %>
+  </div>
+
+  <div>
+    <%= f.input :genre %>
+  </div>
+
+  <div>
+    <%= f.button :submit %>
+  </div>
+<% end %>
