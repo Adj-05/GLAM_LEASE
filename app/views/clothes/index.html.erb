@@ -8,7 +8,11 @@
   <% @clothes.each do |clothe| %>
     <%= link_to clothe_path(clothe.id) do %>
       <div class="card-trip">
-        <% if clothe.photo.attached? %>
+        <div>
+          <button class = "btn_modification">Delete</button>  <button class = "btn_modification">Edit</button>
+
+        </div>
+                <% if clothe.photo.attached? %>
           <%= cl_image_tag clothe.photo.key, class: "clothe-image" %>
         <% else %>
           <img src="https://staticassets.oxfam.org.uk/oxfamgb-production/images/RS350994_Clothes_at_Oxfam_Supersto.2e16d0ba.fill-650x450.jpg" alt="">
@@ -20,7 +24,8 @@
             <p>Couleur : <%= clothe.color %></p>
           </div>
           <h2 class="card-trip-pricing"><%= clothe.price_per_day %> € </h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          <%= cl_image_tag current_user.photo.key, class: "avatar"%>
+          <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
         </div>
       </div>
     <% end  %>
