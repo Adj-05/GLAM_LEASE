@@ -22,6 +22,10 @@ class ClothesController < ApplicationController
     end
   end
 
+  def destroy
+    @clothe = Clothe.destroy(params[:id])
+  end
+
   private
 
   def clothe_params
