@@ -5,7 +5,7 @@
     <div class="row">
       <div class="row justify-content-center">
         <div class="col-md-8">
-          <h1>Rent your clothe's</h1>
+          <h1>Rent your clothes</h1>
           <div class="row">
                    <img id="photo_preview" src="#" alt="Preview" style="display: none; width: 400px; height: 300px; object-fit: cover; border-radius: 10px;"/>
                    <%= f.input :photo, as: :file, input_html: { id: "photo_input" } %>
@@ -36,10 +36,16 @@
   <div>
 <%=  f.input :price_per_day %>
   </div>
-
-  <div>
+<div class="row">
+  <div class="col-md-6">
     <%= f.button :submit, class: "btn-md btn-primary" %>
   </div>
+  <div class="col">
+    <%= link_to "Back", "/", class: "btn-md btn-primary" %>
+</div>
+</div>
+  </div>
+
 </div>
 </div>
 </div>
