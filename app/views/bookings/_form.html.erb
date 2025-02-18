@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div class="card shadow-sm p-4">
+    <h1 class="text-center mb-4">Book This Item</h1>
+
+    <%= simple_form_for [clothe, booking] do |f| %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :start_date,
+            input_html: { data: { controller: "datepicker" }, class: "form-control" }, as: :string, label: "Starting Date" %>
+        </div>
+
+        <div class="col-md-6">
+          <%= f.input :end_date,
+            input_html: { data: { controller: "datepicker" }, class: "form-control" }, as: :string, label: "End Date" %>
+        </div>
+      </div>
+
+      <div class="text-center my-3">
+        <p class="fw-bold fs-5">Total Price: <span class="text-primary">50€</span></p>
+      </div>
+
+      <div class="text-center">
+        <%= f.submit "Book Now", class: "btn btn-primary btn-lg" %>
+      </div>
+    <% end %>
+  </div>
+</div>

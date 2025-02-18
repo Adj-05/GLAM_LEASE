@@ -15,11 +15,15 @@
     </div>
 
     <div class="d-flex flex-column justify-content-between">
-      <%= link_to "Back", clothes_path %>
-      <%= link_to "Book this item", new_clothe_booking_path(@clothe), class: "btn btn-success" %>
+
+
 
       <%# TODO %>
       <%# Potentiellement mettre directement le formulaire de booking ici %>
+      <%= render "bookings/form", clothe: @clothe, booking: @booking %>
+
+      <%= link_to "Back", new_clothe_booking_path(@clothe), class:"btn btn-primary mt-4" %>
+
     </div>
   </div>
 </div>
