@@ -26,7 +26,9 @@
             <p>Couleur : <%= clothe.color %></p>
           </div>
           <h2 class="card-trip-pricing"><%= clothe.price_per_day %> € </h2>
+          <% if current_user.photo.attached? %>
           <%= cl_image_tag current_user.photo.key, class: "avatar"%>
+         <% end  %>
           <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
         </div>
       </div>
