@@ -1,0 +1,43 @@
+<div class="container mt-5 card-resume">
+  <h1 class="text-center mb-4">My Bookings</h1>
+
+  <div>
+    <div class="row">
+      <div class="col-md-8">
+         </div>
+        </div>
+
+        <% total_price = 0 %>
+        <% @bookings.each do |booking| %>
+          <% if booking.start_date && booking.end_date %>
+            <% days_booked = ((booking.end_date - booking.start_date) / 1.day).to_i %>
+            <% item_price = booking.clothe.price_per_day * days_booked %>
+            <% total_price += item_price %>
+            <div class="row align-items-center">
+              <div class="col-2">
+                <%= cl_image_tag booking.clothe.photo.key, width: 70, height: 70, crop: :fill, class: "img-fluid" %>
+              </div>
+              <div class="col">
+                <div class="row"><%= booking.clothe.clothe_type %>, <%= booking.clothe.color %>, <%= booking.clothe.size %>, <%= booking.clothe.genre %></div>
+                <div class="row"><%= booking.clothe.name %></div>
+              </div>
+              <div class="col">
+               <p>  <%= item_price %> €</p>
+              </div>
+            </div>
+          <% else %>
+          <% end %>
+        <% end %>
+      </div>
+
+        <hr>
+        <div class="row">
+          <div class="col">TOTAL PRICE</div>
+          <div class="col"><p> <%= total_price %> € </p> </div>
+                  <div class="mt-4"><%= link_to "Back", "/", class: "btn btn-primary" %></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   #resources :clothes, only: [:index, :show]
 
+
+  resources :bookings, only: [:index]
+
+
   resources :clothes do
     resources :bookings, only: [:new, :create]
   end
