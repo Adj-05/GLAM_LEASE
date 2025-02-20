@@ -15,6 +15,12 @@ class BookingsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
 
+    def accept
+    end
+
+    def decline
+    end
+
   end
 
   private
