@@ -9,8 +9,10 @@
     <%= link_to clothe_path(clothe.id) do %>
       <div class="card-trip">
         <div>
-          <button class = "btn_modification">Delete</button>  <button class = "btn_modification">Edit</button>
+        <% if current_user.id == clothe.user_id%>
 
+          <button class = "btn_modification">Delete</button>  <button class = "btn_modification">Edit</button>
+        <% end %>
         </div>
                 <% if clothe.photo.attached? %>
           <%= cl_image_tag clothe.photo.key, class: "clothe-image" %>
