@@ -1,4 +1,11 @@
 class BookingsController < ApplicationController
+
+  def index
+    @bookings = current_user.bookings.includes(:clothe)
+  end
+
+
+
   def new
     @booking = Booking.new
     @clothe = Clothe.find(params[:clothe_id])
@@ -10,9 +17,15 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.clothe = @clothe
     if @booking.save
-      redirect_to clothes_path
+      redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
+    end
+
+    def accept
+    end
+
+    def decline
     end
 
   end
