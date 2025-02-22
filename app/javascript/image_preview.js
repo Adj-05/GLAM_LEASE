@@ -2,6 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const photoInput = document.getElementById("photo_input");
   const photoPreview = document.getElementById("photo_preview");
 
+
+
+  if (!photoInput || !photoPreview) {
+    return;
+  }
   photoInput.addEventListener("change", function (event) {
     const file = event.target.files[0];
 

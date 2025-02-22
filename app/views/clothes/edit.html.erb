@@ -52,33 +52,6 @@
 
 </div>
 </div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    console.log("photo_input:", document.getElementById("photo_input")); // Debug
 
-    const photoInput = document.getElementById("photo_input");
-    const photoPreview = document.getElementById("photo_preview");
-
-    if (!photoInput || !photoPreview) {
-      console.error("photo_input or photo_preview not found!");
-      return;
-    }
-
-    photoInput.addEventListener("change", function (event) {
-      const file = event.target.files[0];
-
-      if (file) {
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-          photoPreview.src = e.target.result;
-          photoPreview.style.display = "block";
-        };
-
-        reader.readAsDataURL(file);
-      }
-    });
-  });
-</script>
 
 <% end %>
