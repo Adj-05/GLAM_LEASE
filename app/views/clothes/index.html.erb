@@ -8,10 +8,13 @@
   <% @clothes.each do |clothe| %>
     <%= link_to clothe_path(clothe.id) do %>
       <div class="card-trip">
+      <%= link_to "Delete", clothe_path(clothe),
+      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+      class: "btn btn-light" %>
+      <%= link_to "Edit", edit_clothe_path(clothe),
+      class: "btn btn-light" %>
         <div>
         <% if current_user.id == clothe.user_id%>
-
-          <button class = "btn_modification">Delete</button>  <button class = "btn_modification">Edit</button>
         <% end %>
         </div>
                 <% if clothe.photo.attached? %>
