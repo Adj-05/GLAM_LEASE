@@ -3,7 +3,7 @@
     <h1 class="text-center mb-4">Book This Item</h1>
 
     <%= simple_form_for [clothe, booking] do |f| %>
-      <div class="row">
+      <div class="row" id="date" data_price= <%=clothe.price_per_day %> >
         <div class="col-md-6">
           <%= f.input :start_date,
             input_html: { data: { controller: "datepicker" }, class: "form-control" }, as: :string, label: "Starting Date" %>
@@ -16,7 +16,7 @@
       </div>
 
       <div class="text-center my-3">
-        <p class="fw-bold fs-5">Total Price: <span class="text-primary">50€</span></p>
+        <p class="fw-bold fs-5">Total Price: <span id= "total-price" class="text-primary">Enter dates</span></p>
       </div>
 
       <div class="text-center">
@@ -25,3 +25,22 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  let startdate = document.getElementById("booking_start_date")
+  let enddate = document.getElementById("booking_end_date")
+  const date = document.getElementById("date")
+  const price = parseInt(document.getElementById("date").getAttribute("data_price"))
+  const total_price_input = document.getElementById("total-price")
+
+
+
+  date.addEventListener("change", (event) => {
+   let numberOfDays = (new Date(enddate.value).getTime() - new Date(startdate.value).getTime()) / (1000 * 60 * 60 * 24)
+   let total_price = numberOfDays * price
+   console.log(total_price)
+   total_price_input.innerHTML = total_price
+  })
+
+
+</script>
