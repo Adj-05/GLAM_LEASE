@@ -4,37 +4,36 @@
 </div>
 
 <div class="button-container">
-
   <% @clothes.each do |clothe| %>
-    <%= link_to clothe_path(clothe.id) do %>
-      <div class="card-trip">
-      <%= link_to "Delete", clothe_path(clothe),
-      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
-      class: "btn btn-light" %>
-      <%= link_to "Edit", edit_clothe_path(clothe),
-      class: "btn btn-light" %>
+    <div class="card-trip">
+      <%= link_to "Book", clothe_path(clothe.id), class: "btn btn-light" %>
+
+      <% if current_user.id == clothe.user_id %>
+        <%= link_to "Delete", clothe_path(clothe),
+        data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+        class: "btn btn-light" %>
+
+        <%= link_to "Edit", edit_clothe_path(clothe), class: "btn btn-light" %>
+      <% end %>
+
+      <% if clothe.photo.attached? %>
+        <%= cl_image_tag clothe.photo.key, class: "clothe-image" %>
+      <% else %>
+        <img src="https://staticassets.oxfam.org.uk/oxfamgb-production/images/RS350994_Clothes_at_Oxfam_Supersto.2e16d0ba.fill-650x450.jpg" alt="">
+      <% end %>
+
+      <div class="card-trip-infos">
         <div>
-        <% if current_user.id == clothe.user_id%>
-        <% end %>
+          <p>Type : <%= clothe.clothe_type %></p>
+          <p>Taille : <%= clothe.size %></p>
+          <p>Couleur : <%= clothe.color %></p>
         </div>
-                <% if clothe.photo.attached? %>
-          <%= cl_image_tag clothe.photo.key, class: "clothe-image" %>
-        <% else %>
-          <img src="https://staticassets.oxfam.org.uk/oxfamgb-production/images/RS350994_Clothes_at_Oxfam_Supersto.2e16d0ba.fill-650x450.jpg" alt="">
-        <% end %>
-        <div class="card-trip-infos">
-          <div>
-            <p>Type : <%= clothe.clothe_type %></p>
-            <p>Taille : <%= clothe.size %></p>
-            <p>Couleur : <%= clothe.color %></p>
-          </div>
-          <h2 class="card-trip-pricing"><%= clothe.price_per_day %> € </h2>
-          <% if current_user.photo.attached? %>
+        <h2 class="card-trip-pricing"><%= clothe.price_per_day %> € </h2>
+        <% if current_user.photo.attached? %>
           <%= cl_image_tag current_user.photo.key, class: "avatar"%>
-         <% end  %>
-          <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
-        </div>
+        <% end  %>
+        <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
       </div>
-    <% end  %>
+    </div>
   <% end %>
 </div>
