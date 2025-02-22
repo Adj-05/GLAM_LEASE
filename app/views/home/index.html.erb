@@ -1,16 +1,14 @@
 <div class="container d-flex flex-column justify-content-center align-items-center text-center vh-100">
 
-<div class = "background">
+  <%= link_to clothes_path do %>
 
-<div class = "spline">
-<script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.69/build/spline-viewer.js"></script>
-<spline-viewer url="https://prod.spline.design/2Lz06PMIPTLswW9q/scene.splinecode?version1"></spline-viewer>
+    <div class = "spline">
+      <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.69/build/spline-viewer.js"></script>
+      <spline-viewer url="https://prod.spline.design/2Lz06PMIPTLswW9q/scene.splinecode?version1"></spline-viewer>
+    </div>
 
-<%= link_to "Rent now", clothes_path, class: "btn btn-primary btn-lg shadow mt-3" %>
-</div>
-
-  </div>
+  <% end %>
 
 </div>
 
-</div>
+<%# <%= link_to "Rent now", clothes_path%>
